@@ -1,14 +1,13 @@
 var Request = require('./helpers/Request');
 var Automation = require('./helpers/Automation');
 
-var intervalAmount = 1000
-var appId;
+var intervalAmount = 15000
+var appId = 0;
 
 console.log('Starting app.');
 console.log('Getting latest Smoke Network index.');
 Request.getLatestSmokeNetworkIndex(function(err, res) {
   var result = JSON.parse(res);
-  console.log(result);
   // res is compared to a String with value null because it is what firebase will send when there is no data.
   if (res == 'null') {
     appId = 0;
