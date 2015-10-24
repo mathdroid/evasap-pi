@@ -1,34 +1,39 @@
 // Request.js
 var request = require('request');
-var async = require('async');
 var Request = exports;
 
 Request.baseApiUrl = 'https://bantu-asap.firebaseio.com/';
-Request.smokeDataUrl = 'smoke-network/1.json';
+Request.smokeDataUrl = 'smoke-network/';
+Request.smokeUrl = 'smoke-network.json';
 
-// TODO: Finish this
-Request.sendSmokeData = function(data) {
+Request.sendSmokeData = function(appId, data, callback) {
   var payload = JSON.stringify(data);
   var header = {
     'Content-Type': 'application/json'
   };
+
   var options = {
-    url: Request.baseApiUrl + Request.smokeDataUrl,
+    url: Request.baseApiUrl + Request.smokeDataUrl + appId + '.json',
     method: 'PUT',
     headers: header,
     body: payload
   }
-  async.series([function(callback) {
-    request(options, function(error, response, body) {
-      console.log(response);
-      callback(null);
-      // var dataResult = JSON.parse(body);
-      // console.log(dataResult);
-    });
-  },
-  ], function(err, data) {
 
+  request(options, function(error, response, body) {
+    console.log(body);
+    callback(null);
+    // var dataResult = JSON.parse(body);
+    // console.log(dataResult);
   });
 
+}
 
+Request.getLatestSmokeNetworkIndex = function(callback) {
+  var options = {
+    url: Request.baseApiUrl + Request.smokeUrl,
+    method: 'GET'
+  }
+  request(options, function(error, response, body) {
+    callback(error, body);
+  });
 }
