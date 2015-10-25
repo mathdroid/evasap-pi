@@ -1,7 +1,7 @@
 var Request = require('./helpers/Request');
 var Automation = require('./helpers/Automation');
 
-var intervalAmount = 15000
+var intervalAmount = 5000
 var appId = 0;
 
 console.log('Starting app.');

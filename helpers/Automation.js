@@ -20,12 +20,12 @@ function updatePayload(newPayload, appId) {
   payload.latestTimestamp = newPayload.timestamp;
   payload.values.push(payload.latestValue);
   payload.timestamps.push(payload.latestTimestamp);
-  payload.latitude = -6.8758563;
-  payload.longitude = 107.5833764;
 }
 
 Automation.automate = function(appId, intervalAmount) {
   var isSending = false;
+  payload.latitude = -6.8738563 + Math.random()*0.01;
+  payload.longitude = 107.5813764 + Math.random()*0.01;
   setInterval(function() {
     Smoke.getSmoke(function(err, res) {
       // console.log(res);
