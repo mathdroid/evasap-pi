@@ -6,7 +6,7 @@ NodeJS app in Raspberry Pi for [evasap](https://github.com/haritsE/evasap), an a
 
 ## Schematic
 
-![Schematic]('./circuit.png')
+![Schematic](circuit.png)
 
 ## Installing spidev:
 
