@@ -1,6 +1,6 @@
-#! README.MD
+# README
 
-NodeJS app in Raspberry Pi for [evasap](https://github.com/haritsE/evasap), an app for Hackathon Merdeka 2.0.
+NodeJS app in Raspberry Pi for [evasap](https://github.com/haritsE/evasap), an app for Hackathon Merdeka 2.0. This app will join the  executing device (Raspberry Pi) to the **Smoke Network** by evasap.
 
 # Installation
 
